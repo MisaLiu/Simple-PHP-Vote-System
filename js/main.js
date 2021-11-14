@@ -21,7 +21,7 @@ mdui.$(function () {
             mod : 'getUserId'
         },
         success : function (data) {
-            let json = null;
+            let json = undefined;
 
             try {
                 json = JSON.parse(data)
@@ -57,7 +57,7 @@ mdui.$(function () {
                     mod : 'getItemList'
                 },
                 success : function (data) {
-                    let json = null;
+                    let json = undefined;
                     let result = '';
     
                     try {
@@ -83,14 +83,13 @@ mdui.$(function () {
                         return;
                     }
     
-                    result = `<div class="mdui-m-t-2 mdui-m-b-2 mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-grid-list">`;
+                    result = `<div class="mdui-m-t-2 mdui-m-b-1 mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">`;
                     
                     for (let i = 0; i < json.data.length; i++) {
                         let itemInfo = json.data[i];
 
                         result += `<div class="mdui-col">
-                            <div class="mdui-grid-tile">
-                            <section class="mdui-card mdui-hoverable">
+                            <section class="mdui-card mdui-m-b-1 mdui-hoverable">
                             <div class="mdui-card-media" style="background-image: url('` + itemInfo.picture + `')"></div>`;
                         
                         if (totalPerson > 0) {
@@ -100,8 +99,8 @@ mdui.$(function () {
                         }
                             
                         result += `<div class="mdui-card-primary">
-                            <h2 class="mdui-m-t-0 mdui-m-b-0">` + itemInfo.name + `</h2>
-                            <p id="vote_text_` + itemInfo.id + `">` + itemInfo.votes + ` 次投票`;
+                            <h2 class="mdui-text-truncate mdui-m-t-0 mdui-m-b-0" mdui-tooltip="{content:'` + itemInfo.name + `'}">` + itemInfo.name + `</h2>
+                            <p class="mdui-text-truncate" id="vote_text_` + itemInfo.id + `" mdui-tooltip="{content:'` + itemInfo.votes + ` 次投票'}">` + itemInfo.votes + ` 次投票`;
                         
                         if (totalPerson > 0) {
                             result += '&nbsp;&nbsp;' + (itemInfo.votes / (totalPerson * votesPerPerson)).toFixed(2) * 100 + '%';
@@ -120,18 +119,17 @@ mdui.$(function () {
                             }
                             
                             if (isVoted) {
-                                result += `<button onclick="UnvoteItem(this, ` + itemInfo.id + `)" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-red-600">取消投票</button>`;
+                                result += `<button onclick="UnvoteItem(this, ` + itemInfo.id + `)" class="mdui-btn mdui-ripple mdui-color-red-600">取消投票</button>`;
                             } else {
-                                result += `<button onclick="VoteItem(this, ` + itemInfo.id + `)"  class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-green-600">投票</button>`;
+                                result += `<button onclick="VoteItem(this, ` + itemInfo.id + `)"  class="mdui-btn mdui-ripple mdui-color-green-600">投票</button>`;
                             }
 
                         } else {
-                            result += `<button onclick="VoteItem(this, ` + itemInfo.id + `)"  class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-green-600">投票</button>`;
+                            result += `<button onclick="VoteItem(this, ` + itemInfo.id + `)"  class="mdui-btn mdui-ripple mdui-color-green-600">投票</button>`;
                         }
                         
                         result += `</div>
                             </section>
-                            </div>
                             </div>`;
                     }
 
@@ -162,7 +160,7 @@ function VoteItem(button, id) {
             id  : id
         },
         success : function(data) {
-            let json = null;
+            let json = undefined;
 
             try {
                 json = JSON.parse(data);
@@ -226,7 +224,7 @@ function UnvoteItem(button, id) {
             id  : id
         },
         success : function(data) {
-            let json = null;
+            let json = undefined;
 
             try {
                 json = JSON.parse(data);
