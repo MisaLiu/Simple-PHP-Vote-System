@@ -13,6 +13,7 @@
     <head>
         <meta charset="utf8" />
         <meta name="viewport" content="width=device-width" />
+        <meta name="author" content="MisaLiu @HIMlaoS_Misa" />
         <title><? echo $_CONFIG['site']['name'] ?></title>
         <link rel="stylesheet" href="./css/mdui.min.css" />
         <script src="./js/mdui.min.js"></script>
