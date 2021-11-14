@@ -31,11 +31,28 @@
                 background-size: cover;
                 background-position: center;
             }
-            .mdui-toolbar {background-color: #fff;}
+            .mdui-card-primary {
+                display: flex;
+                padding-top: 16px;
+            }
+
+            .mdui-card-primary h2 {
+                margin: 0 16px 0 0;
+                padding: 5px 0;
+            }
+
+            .mdui-card-primary p {
+                margin: 10px 0;
+            }
+
+            .mdui-card-primary button {
+                margin-left: auto;
+            }
         </style>
     </head>
 
-    <body class="mdui-appbar-with-toolbar mdui-drawer-body-left">
+    <body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-loaded mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-light">
+        <!--这里的主题（即 “mdui-theme-*”）是默认的，如果你有需求的话，可以到 mdui.org/docs/ 自行选择主题配色-->
         <header class="mdui-appbar mdui-appbar-fixed">
             <div class="mdui-toolbar mdui-color-theme">
                 <button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target:'#drawer',swipe:true}"><i class="mdui-icon material-icons">menu</i></button>
@@ -62,24 +79,4 @@
 
         <script src="./js/main.js"></script>
     </body>
-
-    <style>
-        .mdui-card-primary {
-            display: flex;
-            padding-top: 16px;
-        }
-
-        .mdui-card-primary h2 {
-            margin: 0 16px 0 0;
-            padding: 5px 0;
-        }
-
-        .mdui-card-primary p {
-            margin: 10px 0;
-        }
-
-        .mdui-card-primary button {
-            margin-left: auto;
-        }
-    </style>
 </html>
