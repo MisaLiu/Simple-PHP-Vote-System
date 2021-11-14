@@ -31,6 +31,7 @@
                 background-size: cover;
                 background-position: center;
             }
+            .mdui-toolbar {background-color: #fff;}
         </style>
     </head>
 
